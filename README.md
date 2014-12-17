@@ -12,7 +12,17 @@ None.
 
 Available variables are listed below, along with default values (see `defaults/main.yml`):
 
-    TODO
+    workspace: /root
+
+The location where code will be downloaded and compiled.
+
+    daemonize_version: 1.7.5
+
+The daemonize release version to install.
+
+    daemonize_install_path: "/usr"
+
+The path where the compiled daemonize binary will be installed.
 
 ## Dependencies
 
@@ -21,14 +31,8 @@ None
 ## Example Playbook
 
     - hosts: servers
-      vars_files:
-        - vars/main.yml
       roles:
         - { role: geerlingguy.daemonize }
-
-*Inside `vars/main.yml`*:
-
-    TODO
 
 ## License
 
