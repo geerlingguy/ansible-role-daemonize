@@ -1,0 +1,49 @@
+---
+# - name: Ensure git's dependencies are installed (RedHat).
+#   yum: "pkg={{ item }} state=installed"
+#   with_items:
+#     - gettext-devel
+#     - expat-devel
+#     - curl-devel
+#     - zlib-devel
+#     - perl-devel
+#     - openssl-devel
+#     - subversion-perl
+#   when: ansible_os_family == 'RedHat'
+
+# - name: Ensure git's dependencies are installed (Debian).
+#   apt: "pkg={{ item }} state=installed"
+#   with_items:
+#     - libcurl4-gnutls-dev
+#     - libexpat1-dev
+#     - gettext
+#     - libssl-dev
+#     - build-essential
+#   when: ansible_os_family == 'Debian'
+
+- name: Download daemonize archive.
+  get_url:
+    url: "https://github.com/bmc/daemonize/archive/release-{{ daemonize_version }}.tar.gz"
+    dest: "{{ workspace }}/release-{{ daemonize_version }}.tar.gz"
+
+- name: Expand daemonize archive.
+  command: >
+    tar -zxf {{ workspace }}/release-{{ daemonize_version }}.tar.gz
+    chdir={{ workspace }}
+    creates={{ workspace }}/release-{{ daemonize_version }}/INSTALL
+
+- name: Check if daemonize is installed.
+  command: which daemonize
+  changed_when: false
+  failed_when: false
+  register: daemonize_installed
+
+- name: Build daemonize.
+  command: >
+    make prefix={{ daemonize_install_path }} {{ item }}
+    chdir={{ workspace }}/release-{{ daemonize_version }}
+  when: daemonize_installed|failed
+  with_items:
+    - all
+    - install
+  sudo: yes
