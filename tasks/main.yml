@@ -22,7 +22,7 @@
     chdir={{ workspace }}/daemonize-release-{{ daemonize_version }}
   when: daemonize_installed|failed
   with_items:
-    - ./configure
-    - "make prefix={{ daemonize_install_path }}"
-    - "make prefix={{ daemonize_install_path }} install"
+    - ./configure prefix={{ daemonize_install_path }}
+    - "make"
+    - "make install"
   sudo: yes
