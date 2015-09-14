@@ -6,7 +6,7 @@ Installs [Daemonize](http://software.clapper.org/daemonize/), a tool for running
 
 ## Requirements
 
-None.
+Make sure you have `gcc` or other build tools installed (e.g. `yum install make automake gcc gcc-c++ kernel-devel` on RedHat, or `apt-get install build-essential` on Debian) prior to running this role, as it builds Daemonize from source.
 
 ## Role Variables
 
@@ -26,7 +26,7 @@ The path where the compiled daemonize binary will be installed.
 
 ## Dependencies
 
-None
+None.
 
 ## Example Playbook
 
