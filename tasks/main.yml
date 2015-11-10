@@ -11,7 +11,7 @@
     creates={{ workspace }}/daemonize-release-{{ daemonize_version }}/INSTALL
 
 - name: Check if daemonize is installed.
-  command: which daemonize
+  command: "env \"PATH=$PATH:{{daemonize_install_path}}:{{daemonize_install_path}}/sbin:{{daemonize_install_path}}/bin:{{daemonize_install_path}}/local/sbin:{{daemonize_install_path}}/local/bin\" which daemonize"
   changed_when: false
   failed_when: false
   register: daemonize_installed
