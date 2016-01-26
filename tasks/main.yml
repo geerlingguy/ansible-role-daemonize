@@ -1,14 +1,10 @@
 ---
-- name: Download daemonize archive.
-  get_url:
-    url: "https://github.com/bmc/daemonize/archive/release-{{ daemonize_version }}.tar.gz"
-    dest: "{{ workspace }}/daemonize-{{ daemonize_version }}.tar.gz"
-
-- name: Expand daemonize archive.
-  command: >
-    tar -zxf {{ workspace }}/daemonize-{{ daemonize_version }}.tar.gz
-    chdir={{ workspace }}
-    creates={{ workspace }}/daemonize-release-{{ daemonize_version }}/INSTALL
+- name: Download and expand daemonize archive.
+  unarchive:
+    src: "https://github.com/bmc/daemonize/archive/release-{{ daemonize_version }}.tar.gz"
+    dest: "{{ workspace }}"
+    creates: "{{ workspace }}/daemonize-release-{{ daemonize_version }}/INSTALL"
+    copy: no
 
 - name: Check if daemonize is installed.
   command: which daemonize
