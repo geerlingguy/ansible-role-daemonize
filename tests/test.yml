@@ -6,6 +6,7 @@
       with_items:
         - "@Development tools"
         - unzip
+        - sudo
       when: ansible_os_family == 'RedHat'
 
     - name: Ensure build dependencies are installed (Debian).
@@ -13,10 +14,8 @@
       with_items:
         - build-essential
         - unzip
+        - sudo
       when: ansible_os_family == 'Debian'
-
-    - name: Ensure sudo is installed.
-      package: name=sudo state=installed
 
   roles:
     - role_under_test
