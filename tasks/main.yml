@@ -5,10 +5,11 @@
     dest: "{{ workspace }}/daemonize-{{ daemonize_version }}.tar.gz"
 
 - name: Expand daemonize archive.
-  command: >
-    tar -zxf {{ workspace }}/daemonize-{{ daemonize_version }}.tar.gz
-    chdir={{ workspace }}
-    creates={{ workspace }}/daemonize-release-{{ daemonize_version }}/INSTALL
+  unarchive:
+    src: "{{ workspace }}/daemonize-{{ daemonize_version }}.tar.gz"
+    dest: "{{ workspace }}"
+    creates: "{{ workspace }}/daemonize-release-{{ daemonize_version }}/INSTALL"
+    copy: no
 
 - name: Check if daemonize is installed.
   command: which daemonize
@@ -25,4 +26,4 @@
     - ./configure
     - "make prefix={{ daemonize_install_path }}"
     - "make prefix={{ daemonize_install_path }} install"
-  sudo: yes
+  become: yes
