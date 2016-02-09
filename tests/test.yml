@@ -1,9 +1,4 @@
----
-- hosts: localhost
-  remote_user: root
-
-  vars:
-    workspace: "/tmp"
+- hosts: all
 
   roles:
-    - ansible-role-daemonize
+    - role_under_test
