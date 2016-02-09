@@ -5,6 +5,7 @@
       yum: 'name="{{ item }}" state=present'
       with_items:
         - "@Development tools"
+        - tar
         - unzip
         - sudo
       when: ansible_os_family == 'RedHat'
@@ -14,6 +15,7 @@
       with_items:
         - build-essential
         - unzip
+        - tar
         - sudo
       when: ansible_os_family == 'Debian'
 
