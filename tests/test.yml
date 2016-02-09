@@ -3,7 +3,7 @@
   remote_user: root
 
   vars:
-    daemonize_install_path: "/usr/local"
+    workspace: "/tmp"
 
   roles:
     - ansible-role-daemonize
