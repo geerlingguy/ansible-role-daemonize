@@ -1,4 +1,13 @@
 - hosts: all
 
+  pre_tasks:
+    - name: Ensure build dependencies are installed (RedHat).
+      yum: name="@Development tools" state=present
+      when: ansible_os_family == 'RedHat'
+
+    - name: Ensure build dependencies are installed (Debian).
+      apt: name=build-essential state=installed
+      when: ansible_os_family == 'Debian'
+
   roles:
     - role_under_test
