@@ -2,5 +2,8 @@
 - hosts: localhost
   remote_user: root
 
+  vars:
+    daemonize_install_path: "/usr/local"
+
   roles:
     - ansible-role-daemonize
