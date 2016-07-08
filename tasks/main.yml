@@ -5,11 +5,7 @@
     dest: "{{ workspace }}/daemonize-{{ daemonize_version }}.tar.gz"
 
 - name: Expand daemonize archive.
-  unarchive:
-    src: "{{ workspace }}/daemonize-{{ daemonize_version }}.tar.gz"
-    dest: "{{ workspace }}"
-    creates: "{{ workspace }}/daemonize-release-{{ daemonize_version }}/INSTALL"
-    copy: no
+  shell: tar -xzvf {{ workspace }}/daemonize-{{ daemonize_version }}.tar.gz -C {{ workspace }}
 
 - name: Check if daemonize is installed.
   command: which daemonize
