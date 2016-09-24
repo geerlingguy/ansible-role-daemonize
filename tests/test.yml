@@ -8,8 +8,6 @@
         - "@Development tools"
         - tar
         - unzip
-        - sudo
-        - which
       when: ansible_os_family == 'RedHat'
 
     - name: Update apt cache.
