@@ -9,7 +9,7 @@
     src: "{{ workspace }}/daemonize-{{ daemonize_version }}.tar.gz"
     dest: "{{ workspace }}"
     creates: "{{ workspace }}/daemonize-release-{{ daemonize_version }}/INSTALL"
-    copy: no
+    copy: false
 
 - name: Check if daemonize is installed.
   command: which daemonize
@@ -26,4 +26,4 @@
     - "./configure --prefix={{ daemonize_install_path }}"
     - make
     - make install
-  become: yes
+  become: true
