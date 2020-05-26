@@ -2,6 +2,7 @@
 dependencies: []
 
 galaxy_info:
+  role_name: daemonize
   author: geerlingguy
   description: "Daemonize for Unix-like operating systems"
   company: "Midwestern Mac, LLC"
