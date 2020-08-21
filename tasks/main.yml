@@ -10,6 +10,7 @@
     dest: "{{ workspace }}"
     creates: "{{ workspace }}/daemonize-release-{{ daemonize_version }}/INSTALL"
     copy: false
+    mode: 0755
 
 - name: Check if daemonize is installed.
   command: which daemonize
