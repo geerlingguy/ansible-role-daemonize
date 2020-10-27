@@ -1,6 +1,6 @@
 # Ansible Role: Daemonize
 
-[![Build Status](https://travis-ci.org/geerlingguy/ansible-role-daemonize.svg?branch=master)](https://travis-ci.org/geerlingguy/ansible-role-daemonize)
+[![Build Status](https://travis-ci.com/geerlingguy/ansible-role-daemonize.svg?branch=master)](https://travis-ci.com/geerlingguy/ansible-role-daemonize)
 
 Installs [Daemonize](http://software.clapper.org/daemonize/), a tool for running commands as a Unix daemon.
 
