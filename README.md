@@ -1,6 +1,6 @@
 # Ansible Role: Daemonize
 
-[![CI](https://github.com/geerlingguy/ansible-role-daemonize/workflows/CI/badge.svg?event=push)](https://github.com/geerlingguy/ansible-role-daemonize/actions?query=workflow%3ACI)
+[![CI](https://github.com/geerlingguy/ansible-role-daemonize/actions/workflows/ci.yml/badge.svg)](https://github.com/geerlingguy/ansible-role-daemonize/actions/workflows/ci.yml)
 
 Installs [Daemonize](http://software.clapper.org/daemonize/), a tool for running commands as a Unix daemon.
 
